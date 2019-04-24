@@ -1,0 +1,18 @@
+{
+  "compilerOptions": {
+    "target": "es5",
+    "outDir": "dist",
+    "lib": [
+        "dom",
+        "es2017"
+    ],
+    "moduleResolution": "node",
+    "noUnusedParameters": true,
+    "strictNullChecks": false,
+    "noUnusedLocals": true
+  },
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
+}
