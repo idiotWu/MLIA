@@ -39,12 +39,16 @@ document.head.appendChild(style);
 
 // auto start
 requestAnimationFrame(() => {
-  if (exerciseType && options.autorun) {
+  if (options.autorun) {
     run();
   }
 });
 
 async function run() {
+  if (!exerciseType) {
+    return;
+  }
+
   const nextBtn: HTMLInputElement = document.querySelector('.btn-problem-next');
 
   // go to next question

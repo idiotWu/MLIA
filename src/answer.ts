@@ -37,6 +37,7 @@ export async function graspWords() {
 
     if (!testInput) {
       console.log(word);
+      return;
     }
 
     testInput.checked = true;

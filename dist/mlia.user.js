@@ -160,7 +160,7 @@ style.textContent = "\n  .dg.ac {\n    z-index: 99999 !important;\n  }\n  .dg.ac
 document.head.appendChild(style);
 // auto start
 requestAnimationFrame(function () {
-    if (exerciseType && options.autorun) {
+    if (options.autorun) {
         run();
     }
 });
@@ -170,6 +170,9 @@ function run() {
         return __generator(this, function (_a) {
             switch (_a.label) {
                 case 0:
+                    if (!exerciseType) {
+                        return [2 /*return*/];
+                    }
                     nextBtn = document.querySelector('.btn-problem-next');
                     // go to next question
                     if (nextBtn !== null) {
@@ -4926,6 +4929,7 @@ function graspWords() {
                         var testInput = document.querySelector("input[value=\"" + word + "\"]");
                         if (!testInput) {
                             console.log(word);
+                            return;
                         }
                         testInput.checked = true;
                     });
