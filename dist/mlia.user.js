@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         MLIA
 // @namespace    https://github.com/idiotWu
-// @version      0.0.1
+// @version      0.0.2
 // @description  Make Linguaporta Intelligent Again
 // @author       Dolphin Wood <dolphin.w.e@gmail.com>
 // @match        *://w5.linguaporta.jp/user/seibido/
