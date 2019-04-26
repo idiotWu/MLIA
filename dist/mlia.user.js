@@ -4925,7 +4925,7 @@ function graspWords() {
                     html = _a.sent();
                     answerList = html.querySelectorAll('#commentary font[color="red"]');
                     Array.from(answerList).forEach(function (elem) {
-                        var word = elem.textContent;
+                        var word = elem.textContent.trim().toLowerCase();
                         var testInput = document.querySelector("input[value=\"" + word + "\"]");
                         if (!testInput) {
                             console.log(word);

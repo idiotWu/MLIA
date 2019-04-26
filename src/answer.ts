@@ -31,7 +31,7 @@ export async function graspWords() {
   const answerList = html.querySelectorAll('#commentary font[color="red"]');
 
   Array.from(answerList).forEach((elem) => {
-    const word = elem.textContent;
+    const word = elem.textContent.trim().toLowerCase();
 
     const testInput: HTMLInputElement = document.querySelector(`input[value="${word}"]`);
 
