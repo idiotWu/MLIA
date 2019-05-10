@@ -93,138 +93,18 @@
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 0);
+/******/ 	return __webpack_require__(__webpack_require__.s = 3);
 /******/ })
 /************************************************************************/
 /******/ ([
 /* 0 */
 /***/ (function(module, exports, __webpack_require__) {
 
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
-    return new (P || (P = Promise))(function (resolve, reject) {
-        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
-        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
-        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
-        step((generator = generator.apply(thisArg, _arguments || [])).next());
-    });
-};
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var dat = __webpack_require__(1);
-var config_1 = __webpack_require__(4);
-var infer_1 = __webpack_require__(5);
-var animation_1 = __webpack_require__(6);
-var waiting_time_1 = __webpack_require__(7);
-var answer = __webpack_require__(8);
-var exerciseType = infer_1.getInferredExerciseType();
-var options = config_1.getAllOptions();
-var gui = new dat.GUI();
-[
-    gui.add(options, 'autorun'),
-    gui.add(options, 'nonstop'),
-    gui.add(options, 'correctness', 0.5, 1.0),
-].forEach(function (ctrl) { return ctrl.onChange(config_1.saveOptions); });
-gui.add({ run: run }, 'run');
-gui.add({ stop: stop }, 'stop');
-// fix style
-var style = document.createElement('style');
-style.textContent = "\n  .dg.ac {\n    z-index: 99999 !important;\n  }\n  .dg.ac li {\n    text-indent: 0 !important;\n    float: none !important;\n    width: auto !important;\n  }\n";
-document.head.appendChild(style);
-// auto start
-requestAnimationFrame(function () {
-    if (options.autorun) {
-        run();
-    }
-});
-function run() {
-    return __awaiter(this, void 0, void 0, function () {
-        var nextBtn, message;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    if (!exerciseType) {
-                        return [2 /*return*/];
-                    }
-                    nextBtn = document.querySelector('.btn-problem-next');
-                    // go to next question
-                    if (nextBtn !== null) {
-                        return [2 /*return*/, nextBtn.click()];
-                    }
-                    message = document.querySelector('#under_area');
-                    if (message.textContent.includes('全問終了')) {
-                        return [2 /*return*/, alert('Finished!')];
-                    }
-                    if (!(Math.random() <= options.correctness)) return [3 /*break*/, 2];
-                    return [4 /*yield*/, Promise.all([
-                            answer[exerciseType](),
-                            animation_1.animation(options.nonstop ? 0 : waiting_time_1.getWaitingTime(exerciseType)),
-                        ])];
-                case 1:
-                    _a.sent();
-                    return [3 /*break*/, 3];
-                case 2:
-                    console.log('skip');
-                    _a.label = 3;
-                case 3:
-                    submit();
-                    return [2 /*return*/];
-            }
-        });
-    });
-}
-function stop() {
-    animation_1.cancelAnimation();
-}
-function submit() {
-    // cast to <any>
-    var tdoc = document;
-    var twin = window;
-    if (exerciseType === 'arrange') {
-        twin.Next(document.querySelector('#Drop0').textContent);
-    }
-    else {
-        tdoc.ExpForm.submit();
-    }
-}
-
+module.exports = __webpack_require__(1)
+module.exports.color = __webpack_require__(2)
 
 /***/ }),
 /* 1 */
-/***/ (function(module, exports, __webpack_require__) {
-
-module.exports = __webpack_require__(2)
-module.exports.color = __webpack_require__(3)
-
-/***/ }),
-/* 2 */
 /***/ (function(module, exports) {
 
 /**
@@ -3889,7 +3769,7 @@ dat.dom.dom,
 dat.utils.common);
 
 /***/ }),
-/* 3 */
+/* 2 */
 /***/ (function(module, exports) {
 
 /**
@@ -4649,15 +4529,25 @@ dat.color.toString,
 dat.utils.common);
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
+/* 3 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
+__webpack_require__.r(__webpack_exports__);
+var answer_namespaceObject = {};
+__webpack_require__.r(answer_namespaceObject);
+__webpack_require__.d(answer_namespaceObject, "vocabulary", function() { return vocabulary; });
+__webpack_require__.d(answer_namespaceObject, "graspWords", function() { return graspWords; });
+__webpack_require__.d(answer_namespaceObject, "fillInBlanks", function() { return fillInBlanks; });
+__webpack_require__.d(answer_namespaceObject, "arrange", function() { return arrange; });
 
-Object.defineProperty(exports, "__esModule", { value: true });
-var namespace = '@MLIA';
-var stroage = localStorage.getItem(namespace);
-var config = stroage ? JSON.parse(stroage) : {
+// EXTERNAL MODULE: ./node_modules/dat-gui/index.js
+var dat_gui = __webpack_require__(0);
+
+// CONCATENATED MODULE: ./src/config.ts
+const namespace = '@MLIA';
+const stroage = localStorage.getItem(namespace);
+const config = stroage ? JSON.parse(stroage) : {
     autorun: false,
     nonstop: false,
     correctness: 0.8,
@@ -4665,30 +4555,19 @@ var config = stroage ? JSON.parse(stroage) : {
 function getAllOptions() {
     return config;
 }
-exports.getAllOptions = getAllOptions;
 function saveOptions() {
     localStorage.setItem(namespace, JSON.stringify(config));
 }
-exports.saveOptions = saveOptions;
 function getOption(key) {
     return config[key];
 }
-exports.getOption = getOption;
 function setOption(key, value) {
     config[key] = value;
     saveOptions();
 }
-exports.setOption = setOption;
 
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var typeMap = [
+// CONCATENATED MODULE: ./src/infer.ts
+const typeMap = [
     ['vocabulary check', 'vocabulary'],
     ['grasping of words', 'graspWords'],
     ['fill in blanks', 'fillInBlanks'],
@@ -4697,27 +4576,19 @@ var typeMap = [
     ['単語並び替え', 'arrange'],
 ];
 function getInferredExerciseType() {
-    var title = document.querySelector('.bloc-resp-lessonname');
+    const title = document.querySelector('.bloc-resp-lessonname');
     if (!title) {
         return '';
     }
-    for (var _i = 0, typeMap_1 = typeMap; _i < typeMap_1.length; _i++) {
-        var _a = typeMap_1[_i], str = _a[0], type = _a[1];
+    for (let [str, type] of typeMap) {
         if (title.textContent.toLowerCase().includes(str)) {
             return type;
         }
     }
 }
-exports.getInferredExerciseType = getInferredExerciseType;
 
-
-/***/ }),
-/* 6 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+// CONCATENATED MODULE: ./src/animation.ts
+var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -4725,45 +4596,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
-var animationID;
-var timestamp;
-var output = document.createElement('div');
+let animationID;
+let timestamp;
+const output = document.createElement('div');
 document.body.appendChild(output);
-output.style.cssText = "\n  position: fixed;\n  right: 1em;\n  bottom: 1em;\n  font-size: 60px;\n  font-family: Consolas, Monaco, monospace;\n  z-index: 9999;\n";
-function frame() {
-    return __awaiter(this, void 0, void 0, function () {
-        return __generator(this, function (_a) {
-            return [2 /*return*/, new Promise(function (resolve) {
-                    animationID = requestAnimationFrame(resolve);
-                })];
+output.style.cssText = `
+  position: fixed;
+  right: 1em;
+  bottom: 1em;
+  font-size: 60px;
+  font-family: Consolas, Monaco, monospace;
+  z-index: 9999;
+`;
+function animation_frame() {
+    return __awaiter(this, void 0, void 0, function* () {
+        return new Promise((resolve) => {
+            animationID = requestAnimationFrame(resolve);
         });
     });
 }
@@ -4771,74 +4619,47 @@ function zeroFix(num) {
     return num.toString().padStart(2, '0');
 }
 function update(remain) {
-    output.textContent = zeroFix(remain / 1000 | 0) + ":" + zeroFix(remain % 1000 / 10 | 0);
+    output.textContent = `${zeroFix(remain / 1000 | 0)}:${zeroFix(remain % 1000 / 10 | 0)}`;
 }
 function animation(duration) {
-    return __awaiter(this, void 0, void 0, function () {
-        var remain, now, elapsed;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0:
-                    remain = duration;
-                    timestamp = Date.now();
-                    if (remain !== 0) {
-                        update(remain);
-                    }
-                    _a.label = 1;
-                case 1:
-                    if (!(remain > 0)) return [3 /*break*/, 3];
-                    return [4 /*yield*/, frame()];
-                case 2:
-                    _a.sent();
-                    now = Date.now();
-                    elapsed = now - timestamp;
-                    remain -= elapsed;
-                    if (remain < 0) {
-                        remain = 0;
-                    }
-                    update(remain);
-                    timestamp = now;
-                    return [3 /*break*/, 1];
-                case 3: return [2 /*return*/];
+    return __awaiter(this, void 0, void 0, function* () {
+        let remain = duration;
+        timestamp = Date.now();
+        if (remain !== 0) {
+            update(remain);
+        }
+        while (remain > 0) {
+            yield animation_frame();
+            const now = Date.now();
+            const elapsed = now - timestamp;
+            remain -= elapsed;
+            if (remain < 0) {
+                remain = 0;
             }
-        });
+            update(remain);
+            timestamp = now;
+        }
     });
 }
-exports.animation = animation;
 function cancelAnimation() {
     output.textContent = '';
     cancelAnimationFrame(animationID);
 }
-exports.cancelAnimation = cancelAnimation;
 
-
-/***/ }),
-/* 7 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-Object.defineProperty(exports, "__esModule", { value: true });
-var range = {
+// CONCATENATED MODULE: ./src/waiting-time.ts
+const range = {
     vocabulary: [3e3, 10e3],
     graspWords: [60e3, 120e3],
     fillInBlanks: [10e3, 60e3],
     arrange: [10e3, 60e3],
 };
 function getWaitingTime(exerciseType) {
-    var _a = range[exerciseType], lower = _a[0], upper = _a[1];
+    const [lower, upper] = range[exerciseType];
     return Math.random() * (upper - lower) + lower + 1 | 0;
 }
-exports.getWaitingTime = getWaitingTime;
 
-
-/***/ }),
-/* 8 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+// CONCATENATED MODULE: ./src/answer.ts
+var answer_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
     return new (P || (P = Promise))(function (resolve, reject) {
         function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
         function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
@@ -4846,135 +4667,147 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __generator = (this && this.__generator) || function (thisArg, body) {
-    var _ = { label: 0, sent: function() { if (t[0] & 1) throw t[1]; return t[1]; }, trys: [], ops: [] }, f, y, t, g;
-    return g = { next: verb(0), "throw": verb(1), "return": verb(2) }, typeof Symbol === "function" && (g[Symbol.iterator] = function() { return this; }), g;
-    function verb(n) { return function (v) { return step([n, v]); }; }
-    function step(op) {
-        if (f) throw new TypeError("Generator is already executing.");
-        while (_) try {
-            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [op[0] & 2, t.value];
-            switch (op[0]) {
-                case 0: case 1: t = op; break;
-                case 4: _.label++; return { value: op[1], done: false };
-                case 5: _.label++; y = op[1]; op = [0]; continue;
-                case 7: op = _.ops.pop(); _.trys.pop(); continue;
-                default:
-                    if (!(t = _.trys, t = t.length > 0 && t[t.length - 1]) && (op[0] === 6 || op[0] === 2)) { _ = 0; continue; }
-                    if (op[0] === 3 && (!t || (op[1] > t[0] && op[1] < t[3]))) { _.label = op[1]; break; }
-                    if (op[0] === 6 && _.label < t[1]) { _.label = t[1]; t = op; break; }
-                    if (t && _.label < t[2]) { _.label = t[2]; _.ops.push(op); break; }
-                    if (t[2]) _.ops.pop();
-                    _.trys.pop(); continue;
-            }
-            op = body.call(thisArg, _);
-        } catch (e) { op = [6, e]; y = 0; } finally { f = t = 0; }
-        if (op[0] & 5) throw op[1]; return { value: op[0] ? op[1] : void 0, done: true };
-    }
-};
-Object.defineProperty(exports, "__esModule", { value: true });
 function fetchAnwser() {
-    return __awaiter(this, void 0, void 0, function () {
-        var fd, res, parser, _a, _b;
-        return __generator(this, function (_c) {
-            switch (_c.label) {
-                case 0:
-                    fd = new FormData();
-                    fd.append('action', 'answer');
-                    return [4 /*yield*/, fetch('/user/seibido/', {
-                            method: 'POST',
-                            body: fd,
-                            credentials: 'include',
-                        })];
-                case 1:
-                    res = _c.sent();
-                    parser = new DOMParser();
-                    _b = (_a = parser).parseFromString;
-                    return [4 /*yield*/, res.text()];
-                case 2: return [2 /*return*/, _b.apply(_a, [_c.sent(),
-                        'text/html'])];
-            }
+    return answer_awaiter(this, void 0, void 0, function* () {
+        const fd = new FormData();
+        fd.append('action', 'answer');
+        const res = yield fetch('/user/seibido/', {
+            method: 'POST',
+            body: fd,
+            credentials: 'include',
         });
+        const parser = new DOMParser();
+        return parser.parseFromString(yield res.text(), 'text/html');
     });
 }
 function vocabulary() {
-    return __awaiter(this, void 0, void 0, function () {
-        var html, answer, testInput;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchAnwser()];
-                case 1:
-                    html = _a.sent();
-                    answer = html.querySelector('.qu03 input');
-                    testInput = document.querySelector('#drill_form input');
-                    testInput.value = answer.value.trim();
-                    return [2 /*return*/];
-            }
-        });
+    return answer_awaiter(this, void 0, void 0, function* () {
+        const html = yield fetchAnwser();
+        const answer = html.querySelector('.qu03 input');
+        const testInput = document.querySelector('#drill_form input');
+        testInput.value = answer.value.trim();
     });
 }
-exports.vocabulary = vocabulary;
 function graspWords() {
-    return __awaiter(this, void 0, void 0, function () {
-        var html, answerList;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchAnwser()];
-                case 1:
-                    html = _a.sent();
-                    answerList = html.querySelectorAll('#commentary font[color="red"]');
-                    Array.from(answerList).forEach(function (elem) {
-                        var word = elem.textContent.trim().toLowerCase();
-                        var testInput = document.querySelector("input[value=\"" + word + "\"]");
-                        if (!testInput) {
-                            console.log(word);
-                            return;
-                        }
-                        testInput.checked = true;
-                    });
-                    return [2 /*return*/];
+    return answer_awaiter(this, void 0, void 0, function* () {
+        const html = yield fetchAnwser();
+        const answerList = html.querySelectorAll('#commentary font[color="red"]');
+        Array.from(answerList).forEach((elem) => {
+            const word = elem.textContent.trim().toLowerCase();
+            const testInput = document.querySelector(`input[value="${word}"]`);
+            if (!testInput) {
+                console.log(word);
+                return;
             }
+            testInput.checked = true;
         });
     });
 }
-exports.graspWords = graspWords;
 function fillInBlanks() {
-    return __awaiter(this, void 0, void 0, function () {
-        var html, answerList, testInputList;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchAnwser()];
-                case 1:
-                    html = _a.sent();
-                    answerList = html.querySelectorAll('#question_area input');
-                    testInputList = document.querySelectorAll('#question_area input');
-                    Array.from(answerList).forEach(function (ans, idx) {
-                        testInputList[idx].value = ans.value.trim();
-                    });
-                    return [2 /*return*/];
-            }
+    return answer_awaiter(this, void 0, void 0, function* () {
+        const html = yield fetchAnwser();
+        const answerList = html.querySelectorAll('#question_area input');
+        const testInputList = document.querySelectorAll('#question_area input');
+        Array.from(answerList).forEach((ans, idx) => {
+            testInputList[idx].value = ans.value.trim();
         });
     });
 }
-exports.fillInBlanks = fillInBlanks;
 function arrange() {
-    return __awaiter(this, void 0, void 0, function () {
-        var html, answer, testInput;
-        return __generator(this, function (_a) {
-            switch (_a.label) {
-                case 0: return [4 /*yield*/, fetchAnwser()];
-                case 1:
-                    html = _a.sent();
-                    answer = html.querySelector('.qu03');
-                    testInput = document.querySelector('#Drop0');
-                    testInput.textContent = answer.textContent;
-                    return [2 /*return*/];
-            }
-        });
+    return answer_awaiter(this, void 0, void 0, function* () {
+        const html = yield fetchAnwser();
+        const answer = html.querySelector('.qu03');
+        const testInput = document.querySelector('#Drop0');
+        testInput.textContent = answer.textContent;
     });
 }
-exports.arrange = arrange;
+
+// CONCATENATED MODULE: ./src/index.ts
+var src_awaiter = (undefined && undefined.__awaiter) || function (thisArg, _arguments, P, generator) {
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : new P(function (resolve) { resolve(result.value); }).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+
+
+
+
+
+
+const exerciseType = getInferredExerciseType();
+const options = getAllOptions();
+const gui = new dat_gui["GUI"]();
+[
+    gui.add(options, 'autorun'),
+    gui.add(options, 'nonstop'),
+    gui.add(options, 'correctness', 0.5, 1.0),
+].forEach(ctrl => ctrl.onChange(saveOptions));
+gui.add({ run }, 'run');
+gui.add({ stop }, 'stop');
+// fix style
+const style = document.createElement('style');
+style.textContent = `
+  .dg.ac {
+    z-index: 99999 !important;
+  }
+  .dg.ac li {
+    text-indent: 0 !important;
+    float: none !important;
+    width: auto !important;
+  }
+`;
+document.head.appendChild(style);
+// auto start
+requestAnimationFrame(() => {
+    if (options.autorun) {
+        run();
+    }
+});
+function run() {
+    return src_awaiter(this, void 0, void 0, function* () {
+        if (!exerciseType) {
+            return;
+        }
+        const nextBtn = document.querySelector('.btn-problem-next');
+        // go to next question
+        if (nextBtn !== null) {
+            return nextBtn.click();
+        }
+        // is over?
+        const message = document.querySelector('#under_area');
+        if (message.textContent.includes('全問終了')) {
+            return alert('Finished!');
+        }
+        // should answer?
+        if (Math.random() <= options.correctness) {
+            yield Promise.all([
+                answer_namespaceObject[exerciseType](),
+                animation(options.nonstop ? 0 : getWaitingTime(exerciseType)),
+            ]);
+        }
+        else {
+            console.log('skip');
+        }
+        src_submit();
+    });
+}
+function stop() {
+    cancelAnimation();
+}
+function src_submit() {
+    // cast to <any>
+    const tdoc = document;
+    const twin = window;
+    if (exerciseType === 'arrange') {
+        twin.Next(document.querySelector('#Drop0').textContent);
+    }
+    else {
+        tdoc.ExpForm.submit();
+    }
+}
 
 
 /***/ })
