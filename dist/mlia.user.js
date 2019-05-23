@@ -4596,7 +4596,7 @@ var __awaiter = (undefined && undefined.__awaiter) || function (thisArg, _argume
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-let animationID;
+let timerID;
 let timestamp;
 const output = document.createElement('div');
 document.body.appendChild(output);
@@ -4611,7 +4611,7 @@ output.style.cssText = `
 function animation_frame() {
     return __awaiter(this, void 0, void 0, function* () {
         return new Promise((resolve) => {
-            animationID = requestAnimationFrame(resolve);
+            timerID = setTimeout(resolve, 51);
         });
     });
 }
@@ -4643,7 +4643,7 @@ function animation(duration) {
 }
 function cancelAnimation() {
     output.textContent = '';
-    cancelAnimationFrame(animationID);
+    clearTimeout(timerID);
 }
 
 // CONCATENATED MODULE: ./src/waiting-time.ts

@@ -1,4 +1,4 @@
-let animationID: number;
+let timerID: number;
 let timestamp: number;
 
 const output = document.createElement('div');
@@ -16,7 +16,7 @@ output.style.cssText = `
 
 async function frame() {
   return new Promise((resolve) => {
-    animationID = requestAnimationFrame(resolve);
+    timerID = setTimeout(resolve, 51);
   });
 }
 
@@ -55,5 +55,5 @@ export async function animation(duration: number) {
 
 export function cancelAnimation() {
   output.textContent = '';
-  cancelAnimationFrame(animationID);
+  clearTimeout(timerID);
 }
