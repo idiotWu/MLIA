@@ -1,8 +1,8 @@
 const range = {
-  vocabulary: [3e3, 10e3],
-  graspWords: [60e3, 120e3],
-  fillInBlanks: [10e3, 60e3],
-  arrange: [10e3, 60e3],
+  vocabulary: [10e3, 30e3],
+  graspWords: [90e3, 120e3],
+  fillInBlanks: [30e3, 90e3],
+  arrange: [30e3, 60e3],
 };
 
 export function getWaitingTime(exerciseType: string) {
