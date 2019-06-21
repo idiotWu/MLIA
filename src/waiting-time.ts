@@ -1,5 +1,5 @@
 const range = {
-  vocabulary: [10e3, 30e3],
+  vocabulary: [10e3, 20e3],
   graspWords: [90e3, 120e3],
   fillInBlanks: [30e3, 90e3],
   arrange: [30e3, 60e3],
