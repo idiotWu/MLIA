@@ -21,7 +21,9 @@ async function frame() {
 }
 
 function zeroFix(num: number) {
-  return num.toString().padStart(2, '0');
+  const str = num.toString();
+
+  return '00'.slice(0, 2 - str.length) + str;
 }
 
 function update(remain: number) {

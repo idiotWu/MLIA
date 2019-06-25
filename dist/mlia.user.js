@@ -4616,7 +4616,8 @@ function animation_frame() {
     });
 }
 function zeroFix(num) {
-    return num.toString().padStart(2, '0');
+    const str = num.toString();
+    return '00'.slice(0, 2 - str.length) + str;
 }
 function update(remain) {
     output.textContent = `${zeroFix(remain / 1000 | 0)}:${zeroFix(remain % 1000 / 10 | 0)}`;
